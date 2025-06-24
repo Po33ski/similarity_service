@@ -15,17 +15,10 @@ Crucially, the Milvus RAG implementation integrates the Gemini API to generate c
 
 Note that you should also activate `uv` project and install dependencies with `uv sync`.
 
-**Lab**
-
-See [lab instruction](LAB_INSTRUCTION.md).
-
-**Homework**
-
-See [homework instruction](HOMEWORK.md).
 
 **Data**
 
-We will be using [Steam Games Dataset](https://huggingface.co/datasets/FronkonGames/steam-games-dataset)
+I used [Steam Games Dataset](https://huggingface.co/datasets/FronkonGames/steam-games-dataset)
 about games published on Steam, as well as
 [Amazon Berkeley Objects (ABO) Dataset](https://amazon-berkeley-objects.s3.amazonaws.com/index.html)
 with data about objects available in the Amazon store.
