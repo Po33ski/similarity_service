@@ -1,0 +1,19 @@
+services:
+  timescaledb:
+    image: timescale/timescaledb-ha:pg16
+    container_name: vectorscaledb
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-password}
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_DB: ${DB_NAME:-similarity_search_service_db}
+    ports:
+      - "5556:5432"
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+
