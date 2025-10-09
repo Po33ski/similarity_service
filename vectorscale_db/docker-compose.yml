@@ -9,5 +9,5 @@ services:
     ports:
       - "5556:5432"
     volumes:
-      - ./initdb:/docker-entrypoint-initdb.db
-      # map the initdb prepare db script to :/docker-entrypoint-initdb.d/prepare_similarity_search_service_db.sql
+      - ./initdb:/docker-entrypoint-initdb.d
+      # map the initdb scripts to docker-entrypoint-initdb.d for automatic execution

@@ -30,6 +30,16 @@ The `env_setup.sh` file contains:
 - `GOOGLE_API_KEY` - Your Google Gemini API key
 - `GEMINI_MODEL` - The Gemini model to use (default: gemini-2.0-flash-exp)
 
+**Quick Start**
+
+```bash
+# RAG System (Q&A with PDFs)
+./run_rag.sh
+
+# Similarity Search (Find similar games)
+./run_search.sh
+```
+
 
 **Data**
 

@@ -1,11 +1,13 @@
 from sentence_transformers import SentenceTransformer
 import torch
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
+# Force CPU usage - RTX 5070 Ti (sm_120) not supported by current PyTorch
+device = "cpu"
 model = SentenceTransformer(
     "distiluse-base-multilingual-cased-v2",
     device=device
 )
+print(f"Using device for embeddings: {device}")
 
 def generate_embedding(text: str) -> list[float]:
     """Generate 512-dim embedding for game descriptions"""
