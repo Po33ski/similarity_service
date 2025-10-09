@@ -15,6 +15,21 @@ Crucially, the Milvus RAG implementation integrates the Gemini API to generate c
 
 Note that you should also activate `uv` project and install dependencies with `uv sync`.
 
+**Environment Setup**
+
+Configure your API keys and model settings:
+```bash
+# Edit env_setup.sh with your Google API key
+nano env_setup.sh
+
+# Load environment variables
+source env_setup.sh
+```
+
+The `env_setup.sh` file contains:
+- `GOOGLE_API_KEY` - Your Google Gemini API key
+- `GEMINI_MODEL` - The Gemini model to use (default: gemini-2.0-flash-exp)
+
 
 **Data**
 
