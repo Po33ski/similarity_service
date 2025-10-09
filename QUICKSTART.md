@@ -1,36 +1,39 @@
 # 🚀 Quick Start Guide
 
-## Two Systems in This Project
+## Two AI-Powered Systems
 
-This project contains **two different vector similarity search systems**:
+This project contains **two production-ready vector search systems**:
 
-### 1. 🤖 RAG System (Milvus + Gemini)
+### 1. 🤖 AI Basics RAG Service (Milvus + Gemini)
 **Location:** `lab_rag/`  
-**Purpose:** Question-answering system using PDF documents  
+**Purpose:** Q&A system analyzing PDF documents  
 **Database:** Milvus Lite (embedded)  
+**AI Model:** Google Gemini 2.0 Flash  
 **Requirements:** Google API key  
 
-### 2. 🎮 Similarity Search Service (PostgreSQL + pgvectorscale)
+### 2. 🎮 Steam Game Search Service (PostgreSQL + pgvectorscale)
 **Location:** `similarity_service/`  
-**Purpose:** Find similar games based on descriptions  
+**Purpose:** Semantic search engine for video games  
 **Database:** PostgreSQL with pgvectorscale  
+**Dataset:** Steam Games (40,000+ available)  
 **Requirements:** Docker Desktop  
 
 ---
 
-## 🤖 RAG System - Quick Start
+## 🤖 AI Basics RAG Service - Quick Start
 
 ### Setup (One-time)
 
 ```bash
-# 1. Navigate to project
-cd /home/jarek/AGH/IPUM/IPUM_Lab02
+# 1. Navigate to project directory (wherever you cloned it)
+cd IPUM_Lab02
 
 # 2. Install dependencies
 uv sync
 
-# 3. Configure API key (edit with your key)
-nano env_setup.sh
+# 3. Configure API key
+cp env_setup.sh.example env_setup.sh
+nano env_setup.sh  # Add your Google API key
 
 # 4. Load environment variables
 source env_setup.sh
@@ -39,10 +42,13 @@ source env_setup.sh
 ### Run
 
 ```bash
-# Simple run
+# Recommended: use main launcher
+./main.sh
+
+# OR run directly
 ./run_rag.sh
 
-# Or manually
+# OR manually
 cd lab_rag
 uv run python main.py
 ```
@@ -61,19 +67,28 @@ uv run python main.py
 
 ---
 
-## 🎮 Similarity Search - Quick Start
+## 🎮 Steam Game Search Service - Quick Start
 
-### Setup (One-time)
+### Prerequisites
+
+- Docker Desktop installed
+- WSL2 integration enabled (Windows users)
+
+### Run (Simple - Recommended)
 
 ```bash
-# 1. Enable Docker Desktop WSL2 integration
-#    Docker Desktop → Settings → Resources → WSL Integration
-#    Enable for your distro, click Apply & Restart
+# Recommended: use main launcher
+./main.sh
 
-# 2. Start the service
-cd /home/jarek/AGH/IPUM/IPUM_Lab02
-./run_similarity_service.sh
+# OR run directly
+./run_search.sh
 ```
+
+**What happens automatically:**
+- ✅ Checks if Docker is running
+- ✅ Starts PostgreSQL database if needed
+- ✅ Loads sample data on first run (200 games, ~2 min)
+- ✅ Launches interactive search interface
 
 ### Load Data (Optional, ~30 minutes)
 

@@ -18,10 +18,13 @@ lab_rag/
 
 ## Prerequisites
 
-### 1. Start Milvus Database
+### 1. Start Milvus Database (Optional - using Milvus Lite by default)
 
+This project uses **Milvus Lite** (embedded mode) by default, so no Docker is needed!
+
+If you want to use Milvus server instead:
 ```bash
-cd /home/jarek/AGH/IPUM/IPUM_Lab02/lab_rag/milvus_db
+cd lab_rag/milvus_db
 docker compose up -d
 ```
 
@@ -63,24 +66,27 @@ export GEMINI_MODEL="gemini-2.0-flash-exp"
 ### 3. Install Dependencies
 
 ```bash
-cd /home/jarek/AGH/IPUM/IPUM_Lab02
+# From project root directory
 uv sync
 ```
 
 ## Usage
 
-### Method 1: Run main.py Script
+### Method 1: Run main.py Script (Recommended)
 
 ```bash
 # From project root directory
-cd /home/jarek/AGH/IPUM/IPUM_Lab02
+./run_rag.sh
+```
 
+Or manually:
+```bash
 # Load environment variables
 source env_setup.sh
 
 # Run the RAG system
 cd lab_rag
-python main.py
+uv run python main.py
 ```
 
 The script will automatically:
@@ -188,8 +194,10 @@ rag.create_collection("rag_texts_and_embeddings")
 ### Problem: "Connection refused" when connecting to Milvus
 
 **Solution:**
+
+The project uses Milvus Lite by default (no Docker needed). If you modified it to use Milvus server:
 ```bash
-cd /home/jarek/AGH/IPUM/IPUM_Lab02/lab_rag/milvus_db
+cd lab_rag/milvus_db
 docker compose up -d
 docker ps  # Check if containers are running
 ```

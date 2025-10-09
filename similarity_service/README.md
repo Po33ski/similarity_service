@@ -33,16 +33,22 @@ Semantic similarity search system for games and images using PostgreSQL with pgv
 
 1. **Docker Desktop** with WSL2 integration enabled
 2. **Python 3.11+** with `uv` package manager
-3. **Dependencies** installed: `cd /home/jarek/AGH/IPUM/IPUM_Lab02 && uv sync`
+3. **Dependencies** installed: `uv sync` (from project root)
 
 ## 🚀 Quick Start
 
-### Method 1: Using the automated script
+### Method 1: Using the automated script (RECOMMENDED)
 
 ```bash
 # From project root
-cd /home/jarek/AGH/IPUM/IPUM_Lab02
-./run_similarity_service.sh
+./run_search.sh
+```
+
+This automatically handles everything: database setup, data loading, and interactive search.
+
+Or use the main launcher:
+```bash
+./main.sh  # Choose option 2 for Steam Game Search
 ```
 
 ### Method 2: Manual step-by-step
@@ -168,7 +174,8 @@ games = find_similar_games(
 Run the interactive search demo:
 
 ```bash
-cd /home/jarek/AGH/IPUM/IPUM_Lab02/similarity_service
+# From project root
+cd similarity_service
 uv run python demo_search.py
 ```
 
@@ -240,7 +247,8 @@ Other good models:
 ## 🛑 Stopping the Service
 
 ```bash
-cd /home/jarek/AGH/IPUM/IPUM_Lab02/vectorscale_db
+# From project root
+cd vectorscale_db
 docker compose down
 ```
 
@@ -288,7 +296,7 @@ docker compose down -v
 
 **Solution:**
 ```bash
-cd /home/jarek/AGH/IPUM/IPUM_Lab02
+# From project root
 uv sync  # Reinstall dependencies
 ```
 

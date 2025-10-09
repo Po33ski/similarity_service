@@ -1,0 +1,38 @@
+#!/bin/bash
+# Environment configuration for RAG systems
+# 
+# SETUP INSTRUCTIONS:
+#   1. Copy this file: cp env_setup.sh.example env_setup.sh
+#   2. Get your Google Gemini API key (see instructions below)
+#   3. Edit env_setup.sh and replace YOUR_API_KEY_HERE with your actual key
+#   4. Load it: source env_setup.sh
+#
+# HOW TO GET GOOGLE GEMINI API KEY (FREE):
+#   1. Go to: https://ai.google.dev/pricing?hl=pl#1_5flash
+#   2. Click "Try it now in Google AI Studio"
+#   3. Click "Get API Key" 
+#   4. Click "Create API Key"
+#   5. Copy the key (starts with AIzaSy...)
+#
+# IMPORTANT: 
+#   - env_setup.sh is in .gitignore (never commit your API key!)
+#   - This example file is safe to commit
+#   - Keep your API key secret!
+
+# Google Gemini API Key
+# Replace YOUR_API_KEY_HERE with your actual API key
+export GOOGLE_API_KEY="YOUR_API_KEY_HERE"
+
+# Gemini Model Name
+# Available models: gemini-2.0-flash-exp, gemini-1.5-flash, gemini-1.5-pro
+export GEMINI_MODEL="gemini-2.0-flash-exp"
+
+# Validation
+if [ "$GOOGLE_API_KEY" = "YOUR_API_KEY_HERE" ]; then
+    echo "⚠️  WARNING: You need to set your actual API key!"
+    echo "   Edit env_setup.sh and replace YOUR_API_KEY_HERE"
+else
+    echo "✅ Environment variables set:"
+    echo "   GOOGLE_API_KEY: ${GOOGLE_API_KEY:0:20}..."
+    echo "   GEMINI_MODEL: $GEMINI_MODEL"
+fi

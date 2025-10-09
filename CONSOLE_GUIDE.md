@@ -1,12 +1,12 @@
-# 🖥️ Console Guide - Similarity Search System
+# 🖥️ Console Guide - Steam Game Search Service
 
-Quick reference for using the Similarity Search system from command line.
+Quick reference for using the Steam Game Search Service from command line.
 
 ## 🚀 Quick Start Commands
 
 ### Start the system (RECOMMENDED - All-in-one)
 ```bash
-cd ./similarity_service
+# From project root directory
 ./run_search.sh
 ```
 
@@ -16,10 +16,10 @@ This automatically:
 - Loads data on first run
 - Launches interactive search
 
-### Start database only (Manual)
+### Start database only (Advanced - manual control)
 ```bash
-cd /home/jarek/AGH/IPUM/IPUM_Lab02
-./run_similarity_service.sh
+cd vectorscale_db
+docker compose up -d
 ```
 
 ### Stop the system
@@ -274,8 +274,8 @@ docker exec vectorscaledb psql -U postgres -d similarity_search_service_db -c \
 # 1. Make sure system is running
 docker ps | grep vectorscaledb
 
-# 2. Start search tool
-cd /home/jarek/AGH/IPUM/IPUM_Lab02/similarity_service
+# 2. Start search tool (from project root)
+cd similarity_service
 uv run python search.py
 
 # 3. Search for games!
@@ -287,8 +287,8 @@ uv run python search.py
 docker exec vectorscaledb psql -U postgres -d similarity_search_service_db \
   -c "SELECT COUNT(*) FROM games;"
 
-# 2. Load 200 more games
-cd /home/jarek/AGH/IPUM/IPUM_Lab02/similarity_service
+# 2. Load 200 more games (from project root)
+cd similarity_service
 uv run python quick_demo.py
 
 # 3. Verify
@@ -298,8 +298,8 @@ docker exec vectorscaledb psql -U postgres -d similarity_search_service_db \
 
 ### Workflow 3: Reset and start fresh
 ```bash
-# 1. Stop database
-cd /home/jarek/AGH/IPUM/IPUM_Lab02/vectorscale_db
+# 1. Stop database (from project root)
+cd vectorscale_db
 docker compose down -v
 
 # 2. Start fresh
@@ -371,12 +371,18 @@ python --version  # Should be 3.11+
 ## 📚 CHEAT SHEET
 
 ```bash
-# Quick commands you'll use most often:
+# Quick commands you'll use most often (run from project root):
 
-# Start system
-./run_similarity_service.sh
+# Main launcher (choose system)
+./main.sh
 
-# Search for games
+# Start Steam Game Search directly
+./run_search.sh
+
+# Start AI Basics RAG directly
+./run_rag.sh
+
+# Search for games manually
 cd similarity_service && uv run python search.py
 
 # Load 200 sample games
@@ -385,7 +391,7 @@ cd similarity_service && uv run python quick_demo.py
 # Check game count
 docker exec vectorscaledb psql -U postgres -d similarity_search_service_db -c "SELECT COUNT(*) FROM games;"
 
-# Stop system
+# Stop database
 cd vectorscale_db && docker compose down
 ```
 

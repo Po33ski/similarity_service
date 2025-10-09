@@ -1,7 +1,11 @@
-# Environment configuration files
+# Environment configuration files (but keep example file)
 env_setup.sh
+env_setup.sh.backup
 .env
 .env.local
+
+# Whitelist the example file
+!env_setup.sh.example
 
 # Python
 __pycache__/
@@ -44,12 +48,15 @@ env/
 
 # Data files
 *.db
+*.db.lock
 *.sqlite
 *.sqlite3
 milvus_db/milvus_lite.db
 *.pdf
 lab_rag/milvus_db/data/*.pdf
 lab_rag/milvus_db/data/*.json
+lab_rag/milvus_db/*.db
+lab_rag/milvus_db/*.db.lock
 milvus_db/data/*.pdf
 milvus_db/data/*.json
 milvus_db/volumes/
