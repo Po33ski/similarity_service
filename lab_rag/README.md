@@ -212,7 +212,7 @@ export GOOGLE_API_KEY="your_api_key_here"
 
 ### Problem: "CUDA capability sm_120 is not compatible"
 
-**Solution:** This is normal for RTX 5070 Ti. Code automatically uses CPU.
+**Solution:** This is normal for RTX 50.. . Code automatically uses CPU.
 If you want to force GPU (after updating PyTorch), change in class:
 ```python
 DEVICE = "cuda"  # Instead of "cpu"

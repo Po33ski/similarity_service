@@ -359,7 +359,7 @@ uv run python quick_demo.py
 ### Python errors
 ```bash
 # Make sure dependencies are installed
-cd /home/jarek/AGH/IPUM/IPUM_Lab02
+cd ../path_to_repo
 uv sync
 
 # Check Python version

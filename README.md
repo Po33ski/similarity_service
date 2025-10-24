@@ -22,8 +22,8 @@ Semantic similarity search engine using PostgreSQL with pgvectorscale.
 
 ```bash
 # 1. Clone repository
-git clone <repo-url>
-cd IPUM_Lab02
+git clone https://github.com/Po33ski/similarity_service.git
+cd similarity_service
 
 # 2. Install dependencies
 uv sync
@@ -174,14 +174,6 @@ docker compose up -d
 # Stop
 docker compose down
 ```
-
-## 🤝 Contributing
-
-This is an educational project for MLOps course (AGH University).
-
-## 📝 License
-
-Educational project - AGH IPUM Lab 02
 
 ## 🔗 Resources
 

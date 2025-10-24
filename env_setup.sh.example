@@ -12,7 +12,6 @@
 #   2. Click "Try it now in Google AI Studio"
 #   3. Click "Get API Key" 
 #   4. Click "Create API Key"
-#   5. Copy the key (starts with AIzaSy...)
 #
 # IMPORTANT: 
 #   - env_setup.sh is in .gitignore (never commit your API key!)

@@ -53,7 +53,7 @@ source env_setup.sh
 ## 📁 Repository Structure
 
 \`\`\`
-IPUM_Lab02/
+./
 ├── 🚀 Launchers
 │   ├── main.sh              # Main launcher (choose system)
 │   ├── run_rag.sh          # AI Basics RAG Service
@@ -323,6 +323,4 @@ games = find_similar_games(
 
 **Ready to explore?** Run `./main.sh` and choose your adventure! 🚀
 
----
 
-*Educational Project - AGH University, IPUM Lab 02*

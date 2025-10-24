@@ -27,8 +27,8 @@ Before you begin, ensure you have:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone <your-repo-url>
-cd IPUM_Lab02
+git clone https://github.com/Po33ski/similarity_service.git
+cd similarity_service
 ```
 
 ### Step 2: Install Dependencies

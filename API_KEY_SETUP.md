@@ -22,15 +22,13 @@ The **AI Basics RAG Service** uses Google Gemini AI to generate intelligent answ
 
    ![Create API Key](API_KEYS_SS.png)
 
-5. Your API key will start with `AIzaSy...` and look like:
-   ```
-   AIzaSyABC123...xyz789
-   ```
+
 
 ### Step 2: Save the API Key
 
-**Option A: Using env_setup.sh (Recommended)**
+**Option A: Using environment setup files (Recommended)**
 
+#### For Linux/Mac/WSL/Git Bash:
 ```bash
 # 1. Copy the example file
 cp env_setup.sh.example env_setup.sh
@@ -43,7 +41,7 @@ code env_setup.sh
 vim env_setup.sh
 
 # 3. Replace YOUR_API_KEY_HERE with your actual key
-export GOOGLE_API_KEY="AIzaSy..."  # Your actual key here
+export GOOGLE_API_KEY="Your actual key here"  # Your actual key here
 
 # 4. Save and exit
 
@@ -51,35 +49,91 @@ export GOOGLE_API_KEY="AIzaSy..."  # Your actual key here
 source env_setup.sh
 ```
 
+#### For Windows:
+```cmd
+REM Windows CMD - copy and edit env_setup_windows.bat
+copy env_setup_windows.bat env_setup_my.bat
+notepad env_setup_my.bat
+
+REM Replace YOUR_API_KEY_HERE with your actual key
+set GOOGLE_API_KEY=......
+
+REM Run the setup
+env_setup_my.bat
+```
+
+```powershell
+# Windows PowerShell - copy and edit env_setup_windows.ps1
+Copy-Item env_setup_windows.ps1 env_setup_my.ps1
+notepad env_setup_my.ps1
+
+# Replace YOUR_API_KEY_HERE with your actual key
+$env:GOOGLE_API_KEY = "Your actual key here
+"
+
+# Run the setup
+.\env_setup_my.ps1
+```
+
 You should see:
 ```
 ✅ Environment variables set:
-   GOOGLE_API_KEY: AIzaSy...
+   GOOGLE_API_KEY: Your actual key here
+
    GEMINI_MODEL: gemini-2.0-flash-exp
 ```
 
 **Option B: Export manually (temporary, only for current session)**
 
+#### Linux/Mac/WSL:
 ```bash
-export GOOGLE_API_KEY="AIzaSy..."
+export GOOGLE_API_KEY="Your actual key here
+"
 export GEMINI_MODEL="gemini-2.0-flash-exp"
 ```
 
-**Option C: Add to ~/.bashrc (permanent)**
+#### Windows CMD:
+```cmd
+set GOOGLE_API_KEY=AIzaSy...
+set GEMINI_MODEL=gemini-2.0-flash-exp
+```
+
+#### Windows PowerShell:
+```powershell
+$env:GOOGLE_API_KEY = "Your actual key here"
+$env:GEMINI_MODEL = "gemini-2.0-flash-exp"
+```
+
+**Option C: Add permanently (Linux/Mac only)**
 
 ```bash
-echo 'export GOOGLE_API_KEY="AIzaSy..."' >> ~/.bashrc
+echo 'export GOOGLE_API_KEY="Your actual key here"' >> ~/.bashrc
 echo 'export GEMINI_MODEL="gemini-2.0-flash-exp"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
+**For Windows permanent setup:**
+- Use System Properties → Environment Variables
+- Or add to PowerShell profile: `$PROFILE`
+
 ### Step 3: Verify Setup
 
+#### Linux/Mac/WSL:
 ```bash
 # Check if the key is set
 echo $GOOGLE_API_KEY
 
 # Should display your API key
+```
+
+#### Windows CMD:
+```cmd
+echo %GOOGLE_API_KEY%
+```
+
+#### Windows PowerShell:
+```powershell
+echo $env:GOOGLE_API_KEY
 ```
 
 ### Step 4: Run the System

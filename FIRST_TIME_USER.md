@@ -31,7 +31,7 @@ source env_setup.sh
    - Go to: https://ai.google.dev/pricing?hl=pl#1_5flash
    - Click "Try it now in Google AI Studio"
    - Click "Get API Key" → "Create API Key"
-   - Copy the key (starts with `AIzaSy...`)
+   - Copy the key 
    
    **Detailed instructions with screenshots:** See [API_KEY_SETUP.md](API_KEY_SETUP.md)
 
