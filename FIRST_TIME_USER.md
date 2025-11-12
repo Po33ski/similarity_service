@@ -1,8 +1,8 @@
-# 👋 Welcome! First Time User Guide
+# Welcome! First Time User Guide
 
 ## Never used this before? Follow these simple steps!
 
-### ⚡ Super Quick Start (3 steps)
+### Super Quick Start (3 steps)
 
 ```bash
 # Step 1: Install dependencies
@@ -21,7 +21,7 @@ source env_setup.sh
 
 ---
 
-## 📝 What You Need
+## What You Need
 
 ### Before You Start
 
@@ -55,16 +55,9 @@ docker --version
 
 ---
 
-## 🎯 Choose Your System
+## Choose Your System
 
 ### Option 1: AI Basics RAG Service (Easier)
-
-**Good for:**
-- Learning about AI concepts
-- Q&A with documents
-- No Docker needed
-- Works immediately
-
 **Try it:**
 ```bash
 ./main.sh
@@ -72,12 +65,6 @@ docker --version
 ```
 
 ### Option 2: Steam Game Search Service
-
-**Good for:**
-- Finding similar games
-- Learning vector search
-- Needs Docker Desktop
-
 **Try it:**
 ```bash
 ./main.sh
@@ -86,7 +73,7 @@ docker --version
 
 ---
 
-## 🐛 Common First-Time Issues
+## Common First-Time Issues
 
 ### "GOOGLE_API_KEY not found"
 
@@ -120,83 +107,48 @@ uv sync
 
 ---
 
-## 💬 What to Expect
+## What to Expect
 
 ### First Run - AI Basics RAG
 ```
-🤖 RAG System
-🆕 First Time Setup Detected
+ RAG System
+First Time Setup Detected
 
-📥 Downloading PDF... (30 seconds)
-🧠 Generating embeddings... (5-10 minutes)
-✅ Done!
+ Downloading PDF... (30 seconds)
+ Generating embeddings... (5-10 minutes)
+ Done!
 
-💬 Interactive Chat Mode
-❓ Your question: What is AI?
-💡 Answer: Systems that mimic human intelligence...
+ Interactive Chat Mode
+ Your question: What is AI?
+ Answer: Systems that mimic human intelligence...
 
-❓ Your question: quit
-👋 Goodbye!
+ Your question: quit
+ Goodbye!
 ```
 
 ### First Run - Steam Game Search
 ```
-🎮 SIMILARITY SEARCH SYSTEM
-🔍 Checking Docker... ✅
-🔍 Checking database... Starting...
-⚠️  No games in database
-❓ Load sample data? yes
+ SIMILARITY SEARCH SYSTEM
+ Checking Docker... 
+ Checking database... Starting...
+  No games in database
+ Load sample data? yes
 
-📦 Loading 200 games... (2-3 minutes)
-✅ Done!
+ Loading 200 games... (2-3 minutes)
+ Done!
 
-🎮 What game are you looking for? RPG
-💰 Max price: 20
-✅ Found 5 games...
+ What game are you looking for? RPG
+ Max price: 20
+ Found 5 games...
 ```
 
----
-
-## ⏱️ Time Estimates
-
-| Action | Time |
-|--------|------|
-| Install dependencies | 5 minutes |
-| First run - AI RAG | 10 minutes |
-| First run - Game Search | 3 minutes |
-| Subsequent runs | Instant |
-
----
-
-## 🎓 Learning Path
-
-### Beginner (Day 1)
-1. ✅ Follow this guide
-2. ✅ Try AI Basics RAG (easier)
-3. ✅ Ask 5-10 questions
-4. ✅ Read `START_HERE.md`
-
-### Intermediate (Day 2)
-1. ✅ Try Steam Game Search
-2. ✅ Search for different game types
-3. ✅ Explore the code
-4. ✅ Read `QUICKSTART.md`
-
-### Advanced (Day 3+)
-1. ✅ Read full documentation
-2. ✅ Modify code for your needs
-3. ✅ Try different datasets
-4. ✅ Integrate into your projects
-
----
-
-## 📞 Need Help?
+## Need Help?
 
 ### Check Documentation
-1. **This file** - First time setup
-2. **START_HERE.md** - Quick reference
-3. **SETUP.md** - Complete setup guide
-4. **CONSOLE_GUIDE.md** - All commands
+1. **This file** – First-time setup
+2. **README.md** – Architecture overview + doc roadmap
+3. **QUICKSTART.md** – Detailed quick start
+4. **CONSOLE_GUIDE.md** – All commands
 
 ### Common Questions
 
@@ -214,7 +166,7 @@ A: Yes! Check the respective README files for instructions
 
 ---
 
-## ✅ Checklist
+## Checklist
 
 Before running, make sure you have:
 
@@ -232,7 +184,7 @@ All done? Run:
 
 ---
 
-**Enjoy exploring vector search and RAG systems!** 🚀
+**Enjoy exploring vector search and RAG systems!** 
 
-*If you get stuck, check SETUP.md for detailed instructions.*
+*If you get stuck, open `QUICKSTART.md` for the full walkthrough or `CONSOLE_GUIDE.md` for command-by-command help.*
 

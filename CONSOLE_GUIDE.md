@@ -1,8 +1,8 @@
-# 🖥️ Console Guide - Steam Game Search Service
+# Console Guide - Steam Game Search Service
 
 Quick reference for using the Steam Game Search Service from command line.
 
-## 🚀 Quick Start Commands
+## Quick Start Commands
 
 ### Start the system (RECOMMENDED - All-in-one)
 ```bash
@@ -30,7 +30,7 @@ docker compose down
 
 ---
 
-## 🔍 SEARCHING FOR GAMES
+## SEARCHING FOR GAMES
 
 ### Method 1: Simple interactive search (RECOMMENDED)
 ```bash
@@ -46,13 +46,13 @@ uv run python search.py
 
 **Example session:**
 ```
-🎮 What game are you looking for? strategy game
-💰 Max price (Enter for any): 20
-💻 Platform (windows/linux/mac or Enter for any): 
+ What game are you looking for? strategy game
+ Max price (Enter for any): 20
+ Platform (windows/linux/mac or Enter for any): 
 
-✅ Found 5 games:
-1. 🎯 Oxygen Not Included
-   💵 Price: $24.99
+ Found 5 games:
+1.  Oxygen Not Included
+    Price: $24.99
    ...
 ```
 
@@ -105,7 +105,7 @@ games = find_similar_games(
 
 ---
 
-## 💾 MANAGING DATA
+## MANAGING DATA
 
 ### Load sample data (200 games, ~2 minutes)
 ```bash
@@ -145,34 +145,6 @@ docker exec vectorscaledb psql -U postgres -d similarity_search_service_db \
 
 ---
 
-## 🔧 DATABASE COMMANDS
-
-### Connect to database
-```bash
-docker exec -it vectorscaledb psql -U postgres -d similarity_search_service_db
-```
-
-Once connected, you can run SQL:
-```sql
--- See all tables
-\dt
-
--- Count games
-SELECT COUNT(*) FROM games;
-
--- See expensive games
-SELECT name, price FROM games WHERE price > 50 ORDER BY price DESC;
-
--- See free games
-SELECT name FROM games WHERE price = 0 LIMIT 10;
-
--- See Linux games
-SELECT name, price FROM games WHERE linux = true LIMIT 10;
-
--- Exit
-\q
-```
-
 ### View database structure
 ```bash
 docker exec vectorscaledb psql -U postgres -d similarity_search_service_db \
@@ -187,7 +159,7 @@ docker exec vectorscaledb psql -U postgres -d similarity_search_service_db \
 
 ---
 
-## 🐳 DOCKER COMMANDS
+## DOCKER COMMANDS
 
 ### Check if running
 ```bash
@@ -230,7 +202,7 @@ docker compose up -d
 
 ---
 
-## 📊 USEFUL QUERIES
+## USEFUL QUERIES
 
 ### Find games by description (SQL)
 ```bash
@@ -267,7 +239,7 @@ docker exec vectorscaledb psql -U postgres -d similarity_search_service_db -c \
 
 ---
 
-## 🎯 EXAMPLE WORKFLOWS
+## EXAMPLE WORKFLOWS
 
 ### Workflow 1: Quick search session
 ```bash
@@ -316,7 +288,7 @@ uv run python quick_demo.py
 
 ---
 
-## 🆘 TROUBLESHOOTING
+## TROUBLESHOOTING
 
 ### Database not responding
 ```bash
@@ -368,7 +340,7 @@ python --version  # Should be 3.11+
 
 ---
 
-## 📚 CHEAT SHEET
+## CHEAT SHEET
 
 ```bash
 # Quick commands you'll use most often (run from project root):
@@ -397,7 +369,7 @@ cd vectorscale_db && docker compose down
 
 ---
 
-## 🔗 Related Files
+## Related Files
 
 - Main search tool: `similarity_service/search.py`
 - Demo with examples: `similarity_service/demo_search.py`

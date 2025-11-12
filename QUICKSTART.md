@@ -1,17 +1,17 @@
-# 🚀 Quick Start Guide
+# Quick Start Guide
 
 ## Two AI-Powered Systems
 
 This project contains **two production-ready vector search systems**:
 
-### 1. 🤖 AI Basics RAG Service (Milvus + Gemini)
+### 1. AI Basics RAG Service (Milvus + Gemini)
 **Location:** `lab_rag/`  
 **Purpose:** Q&A system analyzing PDF documents  
 **Database:** Milvus Lite (embedded)  
-**AI Model:** Google Gemini 2.0 Flash  
+**AI Model:** Google Gemini 2.0 Flash (Experimental)  
 **Requirements:** Google API key  
 
-### 2. 🎮 Steam Game Search Service (PostgreSQL + pgvectorscale)
+### 2. Steam Game Search Service (PostgreSQL + pgvectorscale)
 **Location:** `similarity_service/`  
 **Purpose:** Semantic search engine for video games  
 **Database:** PostgreSQL with pgvectorscale  
@@ -20,7 +20,7 @@ This project contains **two production-ready vector search systems**:
 
 ---
 
-## 🤖 AI Basics RAG Service - Quick Start
+## AI Basics RAG Service - Quick Start
 
 ### Setup (One-time)
 
@@ -59,15 +59,15 @@ uv run python main.py
 
 **Example interaction:**
 ```
-❓ Your question: What is artificial intelligence?
-💡 Answer: Systems or machines that mimic human intelligence...
+ Your question: What is artificial intelligence?
+ Answer: Systems or machines that mimic human intelligence...
 ```
 
-📖 **Full documentation:** `lab_rag/README.md`
+ **Full documentation:** `lab_rag/README.md`
 
 ---
 
-## 🎮 Steam Game Search Service - Quick Start
+## Steam Game Search Service - Quick Start
 
 ### Prerequisites
 
@@ -85,10 +85,10 @@ uv run python main.py
 ```
 
 **What happens automatically:**
-- ✅ Checks if Docker is running
-- ✅ Starts PostgreSQL database if needed
-- ✅ Loads sample data on first run (200 games, ~2 min)
-- ✅ Launches interactive search interface
+-  Checks if Docker is running
+-  Starts PostgreSQL database if needed
+-  Loads sample data on first run (200 games, ~2 min)
+-  Launches interactive search interface
 
 ### Load Data (Optional, ~30 minutes)
 
@@ -116,21 +116,21 @@ uv run python demo_search.py
 
 **Example interaction:**
 ```
-🎮 Describe the game you're looking for: space exploration game
+ Describe the game you're looking for: space exploration game
 Max price (press Enter for no limit): 20
 Platform (windows/linux/mac, or Enter for any): 
 
-✅ Found 5 similar games:
+ Found 5 similar games:
 1. No Man's Sky - $29.99
    Platforms: Windows, Linux
    Description: Explore infinite procedurally generated universe...
 ```
 
-📖 **Full documentation:** `similarity_service/README.md`
+ **Full documentation:** `similarity_service/README.md`
 
 ---
 
-## 🛑 Stopping Services
+## Stopping Services
 
 ### RAG System
 No need to stop - uses embedded database
@@ -143,7 +143,7 @@ docker compose down
 
 ---
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### RAG System
 
@@ -177,7 +177,7 @@ docker compose up -d
 
 ---
 
-## 📊 Comparison
+## Comparison
 
 | Feature | RAG System | Similarity Search |
 |---------|-----------|-------------------|
@@ -190,7 +190,7 @@ docker compose up -d
 
 ---
 
-## 📚 Next Steps
+## Next Steps
 
 1. **Explore RAG system**: 
    - Try different questions

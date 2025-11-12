@@ -23,7 +23,7 @@
 export GOOGLE_API_KEY="YOUR_API_KEY_HERE"
 
 # Gemini Model Name
-# Available models: gemini-2.0-flash-exp, gemini-1.5-flash, gemini-1.5-pro
+# Available models: gemini-2.0-flash-exp, gemini-2.0-flash, gemini-1.5-pro
 export GEMINI_MODEL="gemini-2.0-flash-exp"
 
 # Validation

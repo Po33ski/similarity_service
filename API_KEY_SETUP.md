@@ -1,27 +1,20 @@
-# 🔑 Google Gemini API Key Setup Guide
+# Google Gemini API Key Setup Guide
 
 ## Why Do You Need This?
 
 The **AI Basics RAG Service** uses Google Gemini AI to generate intelligent answers. To use it, you need a free API key.
 
-## 📝 Step-by-Step Instructions
+## Step-by-Step Instructions
 
 ### Step 1: Get the API Key
 
-1. Go to the [Gemini API pricing page](https://ai.google.dev/pricing?hl=pl#1_5flash)
+1. Go to the [Gemini API pricing page](https://ai.google.dev/gemini-api/docs/pricing?hl=pl#gemini-2.0-flash)
 
 2. Click **"Try it now in Google AI Studio"**
 
-   ![Try it now](MODEL_INFO_SS.png)
-
 3. You will be redirected to **Google AI Studio**. Click **"Get API Key"**
 
-   ![Get API Key](GOOGLE_AI_STUDIO_SS.png)
-
 4. Click **"Create API Key"** and copy the generated key
-
-   ![Create API Key](API_KEYS_SS.png)
-
 
 
 ### Step 2: Save the API Key
@@ -51,33 +44,33 @@ source env_setup.sh
 
 #### For Windows:
 ```cmd
-REM Windows CMD - copy and edit env_setup_windows.bat
-copy env_setup_windows.bat env_setup_my.bat
+REM Windows CMD - create a helper script
 notepad env_setup_my.bat
 
-REM Replace YOUR_API_KEY_HERE with your actual key
-set GOOGLE_API_KEY=......
+REM Paste the lines below, save, and close Notepad:
+@echo off
+set GOOGLE_API_KEY=YOUR_API_KEY_HERE
+set GEMINI_MODEL=gemini-2.0-flash-exp
 
-REM Run the setup
+REM Run the script to populate environment variables for this session
 env_setup_my.bat
 ```
 
 ```powershell
-# Windows PowerShell - copy and edit env_setup_windows.ps1
-Copy-Item env_setup_windows.ps1 env_setup_my.ps1
+# Windows PowerShell - create a helper script
 notepad env_setup_my.ps1
 
-# Replace YOUR_API_KEY_HERE with your actual key
-$env:GOOGLE_API_KEY = "Your actual key here
-"
+# Paste the lines below, save, and close Notepad:
+$env:GOOGLE_API_KEY = "YOUR_API_KEY_HERE"
+$env:GEMINI_MODEL   = "gemini-2.0-flash-exp"
 
-# Run the setup
+# Run the script to populate environment variables for this session
 .\env_setup_my.ps1
 ```
 
 You should see:
 ```
-✅ Environment variables set:
+ Environment variables set:
    GOOGLE_API_KEY: Your actual key here
 
    GEMINI_MODEL: gemini-2.0-flash-exp
@@ -87,8 +80,7 @@ You should see:
 
 #### Linux/Mac/WSL:
 ```bash
-export GOOGLE_API_KEY="Your actual key here
-"
+export GOOGLE_API_KEY="Your actual key here"
 export GEMINI_MODEL="gemini-2.0-flash-exp"
 ```
 
@@ -146,15 +138,15 @@ echo $env:GOOGLE_API_KEY
 
 ---
 
-## 🔒 Security Important!
+## Security Important!
 
-### ⚠️ NEVER commit your API key to git!
+### NEVER commit your API key to git!
 
 The project is configured to protect your key:
 
-✅ **env_setup.sh** is in `.gitignore` (your actual key - SAFE)  
-✅ **env_setup.sh.example** is tracked (template - SAFE)  
-✅ **env_setup.sh.backup** is in `.gitignore` (backup - SAFE)
+ **env_setup.sh** is in `.gitignore` (your actual key - SAFE)  
+ **env_setup.sh.example** is tracked (template - SAFE)  
+ **env_setup.sh.backup** is in `.gitignore` (backup - SAFE)
 
 ### Before committing, always check:
 
@@ -172,25 +164,25 @@ git status
 git rm --cached env_setup.sh
 
 # 2. Regenerate your API key immediately
-#    Go to https://aistudio.google.com/apikey
-#    Delete the old key and create a new one
+#   Go to https://aistudio.google.com/apikey
+#   Delete the old key and create a new one
 
 # 3. Update env_setup.sh with the new key
 ```
 
 ---
 
-## 💰 Pricing Information
+## Pricing Information
 
 ### Free Tier (Sufficient for this project)
 
-According to [Google's pricing](https://ai.google.dev/pricing):
+According to [Google's pricing](https://ai.google.dev/gemini-api/docs/pricing?hl=pl#gemini-2.0-flash):
 
 **Gemini 2.0 Flash (Experimental):**
-- ✅ **FREE** for development
-- ✅ Input: Free
-- ✅ Output: Free  
-- ✅ Rate limits: 15 RPM, 1,500 RPD, 1M TPD
+-  **FREE** for development
+-  Input: Free
+-  Output: Free  
+-  Rate limits: 15 RPM, 1,500 RPD, 1M TPD
 
 **Perfect for:**
 - Learning and experimentation
@@ -210,7 +202,7 @@ For this educational project, **free tier is more than enough!**
 
 ---
 
-## 🆘 Troubleshooting
+## Troubleshooting
 
 ### "GOOGLE_API_KEY not found"
 
@@ -267,16 +259,7 @@ git commit -m "Remove API key from tracking"
 
 ---
 
-## 📚 Additional Resources
-
-- [Get API Key](https://aistudio.google.com/apikey)
-- [Gemini API Pricing](https://ai.google.dev/pricing)
-- [Gemini API Documentation](https://ai.google.dev/)
-- [Google AI Studio](https://aistudio.google.com/)
-
----
-
-## ✅ Checklist
+## Checklist
 
 Before running the project:
 
@@ -291,8 +274,4 @@ All done? Run:
 ```bash
 ./main.sh
 ```
-
----
-
-**Remember: Your API key is a secret - never share it or commit it to git!** 🔒
 
