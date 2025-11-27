@@ -8,30 +8,41 @@ from tqdm import tqdm
 
 engine = get_engine()
 
+# This function inserts games into the database with a progress bar
 def insert_games(dataset):
     """Insert games with progress bar"""
     with tqdm(total=len(dataset)) as pbar:
         for game in dataset:
-            # Skip incomplete records
-            if not all(game.get(field) for field in ["Name", "Windows", "Linux", "Mac", "Price"]):
+            name = (game.get("Name") or "").strip()
+            price = game.get("Price")
+
+            # Skip entries missing essential information
+            if not name or price is None:
+                pbar.update(1)
                 continue
-                
-            embedding = generate_embedding(game["About the game"] or "")
+
+            description = (game.get("About the game") or "")[:4096]
+            windows = bool(game.get("Windows"))
+            linux = bool(game.get("Linux"))
+            mac = bool(game.get("Mac"))
+
             game_obj = Games(
-                name=game["Name"],
-                description=(game["About the game"] or "")[:4096],
-                windows=game["Windows"],
-                linux=game["Linux"],
-                mac=game["Mac"],
-                price=float(game["Price"]),
-                game_description_embedding=embedding
+                name=name,
+                description=description,
+                windows=windows,
+                linux=linux,
+                mac=mac,
+                price=float(price),
+                game_description_embedding=generate_embedding(description)
             )
-            
+
             with Session(engine) as session:
                 session.add(game_obj)
                 session.commit()
+
             pbar.update(1)
 
+# This function finds similar games with optional filters
 def find_similar_games(
     description: str,
     min_score: Optional[float] = None,

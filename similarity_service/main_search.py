@@ -89,20 +89,20 @@ def count_games():
 
 
 def load_sample_data():
-    """Load 200 sample games"""
-    print("\n📦 Loading sample data (200 games)...")
-    print("This will take about 2-3 minutes...")
+    """Load 40000 sample games"""
+    print("\n📦 Loading sample data (10000 games)...")
+    print("This will take a moment to complete...")
     
     try:
-        # Import here to avoid circular imports
+        # Lazily import the datasets and game_queries modules to avoid circular imports.
         from datasets import load_dataset
         from game_queries import insert_games
         
         print("\n🔄 Downloading Steam Games dataset...")
         dataset = load_dataset("FronkonGames/steam-games-dataset")
         
-        print("📊 Selecting 200 games...")
-        sample = dataset["train"].select(range(200))
+        print("📊 Selecting 40000 games...")
+        sample = dataset["train"].select(range(40000))
         
         print("\n💾 Generating embeddings and inserting into database...")
         print("(Each game description is converted to a 512-dim vector)")
@@ -115,6 +115,18 @@ def load_sample_data():
         print(f"\n❌ Failed to load data: {e}")
         return False
 
+def clear_database():
+    """Clear the database"""
+    print("\n🔄 Clearing database...")
+    try:
+        engine = get_engine()
+        with Session(engine) as session:
+            session.query(Games).delete(synchronize_session=False) #synchronize_session=False is used to avoid following of removed objects in the memory.
+            session.commit()
+    except Exception as e:
+        print(f"❌ Failed to clear database: {e}")
+        return False
+    return True
 
 def interactive_search():
     """Run interactive game search"""
@@ -132,7 +144,7 @@ def interactive_search():
     print("   • 'indie platformer'")
     print("   • 'multiplayer shooter'")
     print("\n" + "=" * 80 + "\n")
-    
+    # This loop runs the interactive search
     while True:
         try:
             # Get search query
@@ -221,7 +233,7 @@ def show_menu(game_count):
     print(f"📊 Database Status: {game_count} games available")
     print("=" * 80)
     print("\n[1] 🔍 Start game search")
-    print("[2] 📦 Load more games (200 additional)")
+    print("[2] 📦 Reload the games from the database")
     print("[0] 🚪 Exit")
     print("\n" + "=" * 80)
     
@@ -273,8 +285,8 @@ def main():
         print("🆕 FIRST TIME SETUP")
         print("=" * 80)
         print("\nTo use the search system, we need to load some games first.")
-        print("This will download 200 games from Steam and generate embeddings.")
-        print("\n⏱️  Estimated time: 2-3 minutes")
+        print("This will download 40000 games from Steam and generate embeddings.")
+        print("\n⏱️  Estimated time: 2-3 minutes but it may take longer depending on the speed of the internet and the computer.")
         
         response = input("\n❓ Load sample data now? (yes/no): ").strip().lower()
         if response in ['yes', 'y']:
@@ -303,7 +315,12 @@ def main():
                 break
                 
             elif choice == '2':
-                # Load more data
+                if clear_database():
+                    print("\n✅ Database cleared")
+                else:
+                    print("\n❌ Failed to clear database")
+                    sys.exit(1)
+                # Load new data
                 if load_sample_data():
                     game_count = count_games()
                     print(f"\n✅ Database now contains {game_count} games")

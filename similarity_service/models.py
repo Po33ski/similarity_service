@@ -18,7 +18,7 @@ class Games(Base):
     VECTOR_LENGTH = 512  # From model documentation
     
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    name: Mapped[str] = mapped_column(String(256))
+    name: Mapped[str] = mapped_column(String(256)) 
     description: Mapped[str] = mapped_column(String(4096))
     windows: Mapped[bool] = mapped_column(Boolean)
     linux: Mapped[bool] = mapped_column(Boolean)

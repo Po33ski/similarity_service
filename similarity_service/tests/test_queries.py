@@ -1,4 +1,4 @@
-from queries import batch_insert_images, get_first_image, find_similar_images
+from testing_queries import batch_insert_images, get_first_image, find_similar_images
 
 def test_similarity_search():
     # Insert test data (100 images)

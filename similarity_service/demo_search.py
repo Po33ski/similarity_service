@@ -9,7 +9,7 @@ from sqlalchemy.orm import Session
 from database import get_engine
 from models import Games
 
-
+# This function counts the total games in the database
 def count_games():
     """Count total games in database"""
     engine = get_engine()
@@ -17,6 +17,7 @@ def count_games():
         return session.query(Games).count()
 
 
+# This function demonstrates various similarity search queries
 def demo_search():
     """
     Demonstrate various similarity search queries.

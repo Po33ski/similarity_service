@@ -1,11 +1,13 @@
 from datasets import load_dataset
 from game_queries import insert_games, find_similar_games
 
+# This function sets up the database
 def setup_database():
     dataset = load_dataset("FronkonGames/steam-games-dataset")
-    dataset = dataset["train"].select(range(40000))  # Limit to 40k games
+    dataset = dataset["train"].select(range(1000))  # Limit to 1k games
     insert_games(dataset)
 
+# This function tests the search functionality
 def test_search():
     print("\nCheap RPG games:")
     for game in find_similar_games(

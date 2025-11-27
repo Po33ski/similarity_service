@@ -6,6 +6,8 @@ from database import get_engine
 
 engine = get_engine()
 
+#this function inserts a single image with its embedding into the database. TYhe image path is the path to the image and the image embedding is the embedding of the image.
+#The image does not exist in the database. Its just a placeholder for the image and it is created only for the purpose of the test.
 def insert_image(image_path: str, image_embedding: list[float]):
     """Insert a single image with its embedding"""
     with Session(engine) as session:
@@ -17,6 +19,7 @@ def insert_image(image_path: str, image_embedding: list[float]):
         session.commit()
         return image
 
+#this function inserts multiple images with random embeddings
 def batch_insert_images(num_images: int):
     """Insert multiple test images with random embeddings"""
     for i in range(num_images):
@@ -29,6 +32,7 @@ def get_first_image():
     with Session(engine) as session:
         return session.query(Images).first()
 
+#this function finds the most similar images to the reference image
 def find_similar_images(reference_image: Images, k: int = 10) -> list[Images]:
     """
     Find k most similar images using cosine similarity
